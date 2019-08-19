@@ -11,4 +11,6 @@ class User < ApplicationRecord
   validates :address, presence: true, null: false
   validates :seller, default: false
   validates :avatar, presence: true, null: false
+
+  mount_uploader :avatar, AvatarUploader
 end

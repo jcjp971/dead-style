@@ -7,4 +7,6 @@ class Product < ApplicationRecord
   validates :photo, presence: true, null: false
   validates :price, presence: true, null: false
   validates :active, default: false
+
+  mount_uploader :photo, PhotoUploader
 end
