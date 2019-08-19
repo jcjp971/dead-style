@@ -7,10 +7,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :name, presence: true, null: false
-  validates :address, presence: true, null: false
-  validates :seller, default: false
-  validates :avatar, presence: true, null: false
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :seller
+  validates :avatar, presence: true
 
   mount_uploader :avatar, AvatarUploader
+
+  after_initialize :init
+
+  def init
+    self.seller = false
+  end
 end
