@@ -104,7 +104,7 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="object_id" null="1" autoincrement="0">
+<row name="product_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="product" row="id" />
 </row>
