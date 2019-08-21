@@ -1,7 +1,9 @@
 class Product < ApplicationRecord
   belongs_to :owner, class_name: "User"
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
-  CATEGORY = %w(slow smooth fast)
+  CATEGORY = %w[slow smooth fast hard]
 
   validates :name, presence: true, null: false
   validates :description, presence: true, null: false
