@@ -1,0 +1,13 @@
+<h1>Propose your style</h1>
+
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name, autofocus: true %>
+  <%= f.input :category, collection: Product::CATEGORY, selected: :first%>
+  <%= f.input :description %>
+  <%= f.input :address, input_html: { id: "address"}%>
+  <%= f.input :price %>
+  <%= f.input :active %>
+  <%= f.input :photo %>
+
+  <%= f.button :submit %>
+<% end %>

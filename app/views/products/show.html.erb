@@ -1,0 +1,25 @@
+<h1>Products#show</h1>
+
+
+
+
+
+<%= @product.description %>
+<%= @product.category %>
+<%= cl_image_tag @product.photo %>
+<%= @product.price %>
+<%= @product.rating %>
+<%= @product.active %>
+<%= @product.latitude %>
+<%= @product.longitude %>
+
+
+
+<%= link_to 'I want to try', product_sales_path(@product), method: :post %>
+
+
+<%= simple_form_for @sale,:url => product_sales_path(@product), :method => :post do |f| %>
+  <%= f.input :date, autofocus: true, as: :date, html5: true%>
+
+  <%= f.button :submit %>
+<% end %>

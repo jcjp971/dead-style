@@ -1,0 +1,8 @@
+
+
+<% @products.each do |product| %>
+  <%= product.name %>
+  <%= link_to product_path(product) do %>
+            <i class="fas fa-plus"></i>
+            <% end %>
+<% end %>

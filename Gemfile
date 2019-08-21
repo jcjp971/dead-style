@@ -20,6 +20,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'faker'
 gem 'pundit'
 gem 'geocoder'
+gem 'rails-i18n', '~> 5.1'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

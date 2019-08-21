@@ -1,50 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+
+  <%= link_to "/", class: "navbar-brand" do %>
     <%= image_tag("logo.jpeg") %>
   <% end %>
-
-
-
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-
-        <% histoires = ["histoire1.jpg","histoire2.jpg","histoire3.jpg"]%>
-      <% if current_user %>
-        <li class="nav-item dropdown">
-          <%= image_tag "tips.png", height: '32', class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= image_tag(histoires.sample, height: '480') %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-
-
-
-    </ul>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,17 +11,39 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <% histoires = ["histoire1.jpg","histoire2.jpg","histoire3.jpg"]%>
+
+      <li class="nav-item dropdown">
+        <%= image_tag "tips.png", height: '32', class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown">
+          <%= image_tag(histoires.sample, height: '480') %>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
 
       <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
+        <%= link_to "Propose your style", new_product_path, class: "nav-link" %>
       </li>
 
       <% if current_user %>
+
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+
+            <% if current_user.own_products.count > 0 %>
+              <%= link_to "Show my styles", mystyle_path, class: "dropdown-item" %>
+            <% end %>
+
+
+            <%= link_to "See my death", sales_path, class: "dropdown-item" %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>

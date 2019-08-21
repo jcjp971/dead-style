@@ -10,7 +10,6 @@ class Product < ApplicationRecord
   validates :category, presence: true, inclusion: { in: CATEGORY }
   validates :photo, presence: true, null: false
   validates :price, presence: true, null: false
-  validates :active
 
   mount_uploader :photo, PhotoUploader
 
