@@ -9,7 +9,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
   validates :address, presence: true
-  validates :seller
   validates :avatar, presence: true
 
   mount_uploader :avatar, AvatarUploader
