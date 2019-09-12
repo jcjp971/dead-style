@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_many :sales
-  has_many :products, through: :sales
+  has_many :products
+  has_many :sales, through: :products
+  has_many :buys, class_name: 'Sale', foreign_key: :user_id
   has_many :own_products, class_name: 'Product', foreign_key: :owner_id
 
   # Include default devise modules. Others available are:
@@ -15,7 +16,7 @@ class User < ApplicationRecord
 
   after_initialize :init
 
-  def init
+  def initsh
     self.seller = false
   end
 end

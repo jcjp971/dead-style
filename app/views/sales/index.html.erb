@@ -1,2 +1,18 @@
-<h1>Sales#index</h1>
-<p>Find me in app/views/sales/index.html.erb</p>
+<div class="container">
+  <div class="showproducts row">
+    <% @sales.each do |sale| %>
+      <%= link_to sales_path(sale) do %>
+        <div class="col-md-auto showproduct" >
+          <div class="infos">
+            <h2><%= sale.date %></h2>
+            <%= sale.paid %>
+          </div>
+           <%= cl_image_tag(sale.product.photo) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+

@@ -13,9 +13,4 @@ class Product < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  after_initialize :init
-
-  def init
-    self.active = false
-  end
 end

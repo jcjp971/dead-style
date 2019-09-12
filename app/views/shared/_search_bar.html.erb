@@ -1,0 +1,6 @@
+<div class="searchbar">
+  <%= form_with(url: "/products", method: :get) do %>
+    <%= select_tag(:category, options_for_select(Product::CATEGORY)) %>
+    <%= submit_tag("resultat") %>
+  <% end %>
+</div>

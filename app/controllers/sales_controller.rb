@@ -20,6 +20,13 @@ class SalesController < ApplicationController
   end
 
   def index
+    @sales = Sale.all.where(user: current_user)
+    @products = policy_scope(Product)
+  end
+
+  def mybusiness
+    @sales = Sale.all.where(user: current_user)
+    @products = policy_scope(Product)
   end
 
   def show

@@ -1,25 +1,40 @@
-<h1>Products#show</h1>
+<h1><%= @product.name %></h1>
 
 
+<div class="container">
+  <div class="showproducts row">
 
+        <div class="col-6" >
+          <%= cl_image_tag @product.photo %>
 
+        </div>
+        <div class="col-6"
+            id="map"
+            style="width: 100%;
+            height: 600px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          ></div>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-6" >
+          <%= @product.description %>
+          <%= @product.category %>
 
-<%= @product.description %>
-<%= @product.category %>
-<%= cl_image_tag @product.photo %>
-<%= @product.price %>
-<%= @product.rating %>
-<%= @product.active %>
-<%= @product.latitude %>
-<%= @product.longitude %>
+          <%= @product.rating %>
+        </div>
+        <div class="col-6" >
+          <%= @product.price %>
+          <%= @product.active %>
 
+          <%= simple_form_for @sale,:url => product_sales_path(@product), :method => :post do |f| %>
+            <%= f.input :date, autofocus: true, as: :date, html5: true%>
 
+            <%= f.button :submit %>
+          <% end %>
+          <%= link_to 'I want to try', product_sales_path(@product), method: :post %>
+        </div>
 
-<%= link_to 'I want to try', product_sales_path(@product), method: :post %>
+  </div>
+</div>
 
-
-<%= simple_form_for @sale,:url => product_sales_path(@product), :method => :post do |f| %>
-  <%= f.input :date, autofocus: true, as: :date, html5: true%>
-
-  <%= f.button :submit %>
-<% end %>

@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 
   <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag("logo.jpeg") %>
+    <%= cl_image_tag("https://res.cloudinary.com/jcjp971/image/upload/v1566500495/deadstyle/logo_moooko.jpg") %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,10 +11,10 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% histoires = ["histoire1.jpg","histoire2.jpg","histoire3.jpg"]%>
+      <% histoires = ["https://res.cloudinary.com/jcjp971/image/upload/v1566500497/deadstyle/histoire2_mywhlu.jpg","https://res.cloudinary.com/jcjp971/image/upload/v1566500498/deadstyle/histoire1_b7smw5.jpg","https://res.cloudinary.com/jcjp971/image/upload/v1566500498/deadstyle/histoire3_plty31.jpg"]%>
 
-      <li class="nav-item dropdown">
-        <%= image_tag "tips.png", height: '32', class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <li class="nav-item dropdown tips">
+        <%= image_tag "https://res.cloudinary.com/jcjp971/image/upload/v1566500494/deadstyle/tips_qubnxb.png", height: '32', class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown">
           <%= image_tag(histoires.sample, height: '480') %>
         </div>
@@ -39,6 +39,7 @@
 
             <% if current_user.own_products.count > 0 %>
               <%= link_to "Show my styles", mystyle_path, class: "dropdown-item" %>
+              <%= link_to "My business", sales_path, class: "dropdown-item" %>
             <% end %>
 
 

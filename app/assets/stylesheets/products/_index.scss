@@ -1,0 +1,42 @@
+.indexpro{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 75px;
+}
+
+.indexcard{
+
+}
+
+
+.showproducts {
+  margin-top: 20px;
+}
+
+.showproduct {
+  margin-bottom: 10px;
+  height: 250px;
+  display: flex;
+
+
+    img {
+      height: 250px;
+      padding: 10px;
+    }
+}
+
+
+
+
+@media(max-width: 1200px) {
+  .indexpro {
+    grid-template-columns: 1fr 1fr 1fr 1fr
+  }
+}
+
+
+@media(max-width: 768px) {
+  .indexpro {
+    grid-template-columns: 1fr 1fr;
+  }
+}

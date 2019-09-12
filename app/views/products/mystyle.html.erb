@@ -1,8 +1,18 @@
 
 
-<% @products.each do |product| %>
-  <%= product.name %>
-  <%= link_to product_path(product) do %>
-            <i class="fas fa-plus"></i>
-            <% end %>
-<% end %>
+
+<div class="container">
+  <div class="showproducts row">
+    <% @products.each do |product| %>
+      <%= link_to product_path(product) do %>
+        <div class="col-md-auto showproduct" >
+          <div class="infos">
+            <h2><%= product.name %></h2>
+            <%= product.description %>
+          </div>
+          <%= cl_image_tag(product.photo) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

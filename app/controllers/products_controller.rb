@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show destroy]
+  skip_before_action :authenticate_user!, only: %i[show index]
   def new
     @product = Product.new
     authorize(@product)
@@ -18,10 +19,19 @@ class ProductsController < ApplicationController
   end
 
   def index
+    # @product = Product.find(params[:id])
+    @products = policy_scope(Product)
   end
 
   def show
     @sale = Sale.new
+    @product = Product.find(params[:id])
+    @markers =
+      {
+        lat: @product.latitude,
+        lng: @product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { product: @product })
+      }
   end
 
   def mystyle

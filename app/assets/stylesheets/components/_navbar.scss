@@ -5,6 +5,7 @@
   left: 0;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,4 +18,8 @@
 
 .navbar_push {
   height: 60px;
+}
+
+.tips {
+  margin-left: 150px;
 }
